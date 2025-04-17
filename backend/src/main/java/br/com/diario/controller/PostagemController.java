@@ -20,12 +20,12 @@ public class PostagemController {
         this.service = service;
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<PostagemResponseDTO> buscarPorId(@PathVariable Long id) {
-        return service.buscarPorId(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
-    }
+//    @GetMapping("/{id}")
+//    public ResponseEntity<PostagemResponseDTO> buscarPorId(@PathVariable Long id) {
+//        return service.buscarPorId(id)
+//                .map(ResponseEntity::ok)
+//                .orElse(ResponseEntity.notFound().build());
+//    }
 
 
     // Criar postagem com imagem (multipart)

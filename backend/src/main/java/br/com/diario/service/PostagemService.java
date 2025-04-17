@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -21,10 +22,10 @@ public class PostagemService {
     }
 
 
-    public Optional<PostagemResponseDTO> buscarPorId(Long id) {
-        return repository.findById(id)
-                .map(PostagemMapper::toDTO);
-    }
+//    public Optional<PostagemResponseDTO> buscarPorId(Long id) {
+//        return repository.findById(id)
+//                .map(PostagemMapper::toDTO);
+//    }
 
     public PostagemResponseDTO salvar(PostagemRequestDTO dto) {
         Postagem postagem = new Postagem();
