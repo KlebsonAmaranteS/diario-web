@@ -7,8 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
-
+import java.util.List;
 
 @RestController
 @RequestMapping("/postagens")
@@ -20,49 +19,30 @@ public class PostagemController {
         this.service = service;
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<PostagemResponseDTO> buscarPorId(@PathVariable Long id) {
-        return service.buscarPorId(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
-    }
-
-    // Listar todas as postagens
-    @GetMapping
-    public ResponseEntity<Iterable<PostagemResponseDTO>> listar() {
-        return ResponseEntity.ok(service.listar());
-    }
-
-
-    // Criar postagem com imagem (multipart)
     @PostMapping(consumes = "multipart/form-data")
     public ResponseEntity<PostagemResponseDTO> criarComImagem(
             @RequestParam String titulo,
             @RequestParam String texto,
-            @RequestParam("foto") MultipartFile foto) throws IOException {
+            @RequestParam("foto") MultipartFile foto) {
 
         PostagemRequestDTO dto = new PostagemRequestDTO();
         dto.setTitulo(titulo);
         dto.setTexto(texto);
-        dto.setFoto(foto.getBytes());
+        dto.setFoto(foto);
 
         return ResponseEntity.ok(service.salvar(dto));
     }
 
-    // Obter imagem de uma postagem
-//    @GetMapping("/{id}/imagem")
-//    public ResponseEntity<byte[]> obterImagem(@PathVariable Long id) {
-//        return service.buscarPorId(id)
-//                .map(dto -> ResponseEntity.ok()
-//                        .header("Content-Type", "image/jpeg")
-//                        .body(dto.getFoto()))
-//                .orElse(ResponseEntity.notFound().build());
-//    }
-
-    // Deletar uma postagem
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletar(@PathVariable Long id) {
         service.deletar(id);
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping
+    public ResponseEntity<List<PostagemResponseDTO>> listarTodas() {
+        return ResponseEntity.ok(service.listarTodas());
+    }
+
 }
+
