@@ -27,6 +27,11 @@ public class PostagemService {
                 .map(PostagemMapper::toDTO) // Correctly map entities to DTOs
                 .toList();
     }
+  
+    public Optional<PostagemResponseDTO> buscarPorId(Long id) {
+        return repository.findById(id)
+                .map(PostagemMapper::toDTO);
+    }
 
     public PostagemResponseDTO salvar(PostagemRequestDTO dto) {
         Postagem postagem = new Postagem();
