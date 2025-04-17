@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import "../styles/PostCard.css";
+
 
 function PostCard(props) {
     const { titulo, dataHora, imagem, resumo, idPostagem } = props;
