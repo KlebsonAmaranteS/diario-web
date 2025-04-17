@@ -27,6 +27,12 @@ public class PostagemController {
 //                .orElse(ResponseEntity.notFound().build());
 //    }
 
+    // Listar todas as postagens
+    @GetMapping
+    public ResponseEntity<Iterable<PostagemResponseDTO>> listar() {
+        return ResponseEntity.ok(service.listar());
+    }
+
 
     // Criar postagem com imagem (multipart)
     @PostMapping(consumes = "multipart/form-data")
