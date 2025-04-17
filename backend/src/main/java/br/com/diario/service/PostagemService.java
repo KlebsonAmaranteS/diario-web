@@ -22,10 +22,10 @@ public class PostagemService {
     }
 
 
-//    public Optional<PostagemResponseDTO> buscarPorId(Long id) {
-//        return repository.findById(id)
-//                .map(PostagemMapper::toDTO);
-//    }
+    public Optional<PostagemResponseDTO> buscarPorId(Long id) {
+        return repository.findById(id)
+                .map(PostagemMapper::toDTO);
+    }
 
     public PostagemResponseDTO salvar(PostagemRequestDTO dto) {
         Postagem postagem = new Postagem();
