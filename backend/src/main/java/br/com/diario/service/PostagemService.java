@@ -21,11 +21,12 @@ public class PostagemService {
         this.repository = repository;
     }
 
-
-//    public Optional<PostagemResponseDTO> buscarPorId(Long id) {
-//        return repository.findById(id)
-//                .map(PostagemMapper::toDTO);
-//    }
+    public List<PostagemResponseDTO> listar() {
+        return repository.findAll()
+                .stream()
+                .map(PostagemMapper::toDTO) // Correctly map entities to DTOs
+                .toList();
+    }
 
     public PostagemResponseDTO salvar(PostagemRequestDTO dto) {
         Postagem postagem = new Postagem();
