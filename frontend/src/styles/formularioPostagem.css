@@ -1,0 +1,180 @@
+/*!* Estilos do container do rodapé *!*/
+/*.formulario-postagem-container {*/
+/*    background-color: #f8f9fa;*/
+/*    padding: 2rem 1rem;*/
+/*    margin-top: 3rem;*/
+/*    border-top: 1px solid #e9ecef;*/
+/*  }*/
+/*  */
+/*  .formulario-titulo {*/
+/*    text-align: center;*/
+/*    color: #212529;*/
+/*    margin-bottom: 1.5rem;*/
+/*    font-size: 1.5rem;*/
+/*  }*/
+/*  */
+/*  !* Estilos do formulário *!*/
+/*  .formulario-postagem {*/
+/*    max-width: 800px;*/
+/*    margin: 0 auto;*/
+/*    padding: 1.5rem;*/
+/*    background-color: white;*/
+/*    border-radius: 8px;*/
+/*    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);*/
+/*  }*/
+/*  */
+/*  .campo-formulario {*/
+/*    margin-bottom: 1.5rem;*/
+/*  }*/
+/*  */
+/*  .campo-formulario label {*/
+/*    display: block;*/
+/*    margin-bottom: 0.5rem;*/
+/*    font-weight: 500;*/
+/*    color: #495057;*/
+/*  }*/
+/*  */
+/*  .campo-formulario input[type="text"],*/
+/*  .campo-formulario textarea {*/
+/*    width: 100%;*/
+/*    padding: 0.75rem;*/
+/*    border: 1px solid #ced4da;*/
+/*    border-radius: 4px;*/
+/*    font-size: 1rem;*/
+/*    transition: border-color 0.15s;*/
+/*  }*/
+/*  */
+/*  .campo-formulario input[type="text"]:focus,*/
+/*  .campo-formulario textarea:focus {*/
+/*    outline: none;*/
+/*    border-color: #80bdff;*/
+/*    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);*/
+/*  }*/
+/*  */
+/*  .campo-formulario textarea {*/
+/*    resize: vertical;*/
+/*    min-height: 120px;*/
+/*  }*/
+/*  */
+/*  .contador-caracteres {*/
+/*    display: block;*/
+/*    text-align: right;*/
+/*    font-size: 0.8rem;*/
+/*    color: #6c757d;*/
+/*    margin-top: 0.25rem;*/
+/*  }*/
+/*  */
+/*  !* Estilos do upload de imagem *!*/
+/*  .upload-container {*/
+/*    margin-top: 0.5rem;*/
+/*  }*/
+/*  */
+/*  .custom-file-upload {*/
+/*    display: inline-block;*/
+/*    padding: 0.75rem 1.25rem;*/
+/*    background-color: #e9ecef;*/
+/*    color: #495057;*/
+/*    border-radius: 4px;*/
+/*    cursor: pointer;*/
+/*    transition: background-color 0.15s;*/
+/*    border: 1px dashed #adb5bd;*/
+/*    text-align: center;*/
+/*  }*/
+/*  */
+/*  .custom-file-upload:hover {*/
+/*    background-color: #dee2e6;*/
+/*  }*/
+/*  */
+/*  .custom-file-upload input[type="file"] {*/
+/*    display: none;*/
+/*  }*/
+/*  */
+/*  .dica-upload {*/
+/*    display: block;*/
+/*    font-size: 0.8rem;*/
+/*    color: #6c757d;*/
+/*    margin-top: 0.5rem;*/
+/*  }*/
+/*  */
+/*  .preview-imagem-container {*/
+/*    position: relative;*/
+/*    margin-top: 0.5rem;*/
+/*  }*/
+/*  */
+/*  .preview-imagem {*/
+/*    max-width: 100%;*/
+/*    max-height: 200px;*/
+/*    border-radius: 4px;*/
+/*    display: block;*/
+/*  }*/
+/*  */
+/*  .botao-remover-imagem {*/
+/*    position: absolute;*/
+/*    top: 0.5rem;*/
+/*    right: 0.5rem;*/
+/*    background-color: rgba(220, 53, 69, 0.9);*/
+/*    color: white;*/
+/*    border: none;*/
+/*    border-radius: 4px;*/
+/*    padding: 0.25rem 0.5rem;*/
+/*    font-size: 0.8rem;*/
+/*    cursor: pointer;*/
+/*  }*/
+/*  */
+/*  .botao-remover-imagem:hover {*/
+/*    background-color: #dc3545;*/
+/*  }*/
+/*  */
+/*  !* Estilos do botão enviar *!*/
+/*  .botao-enviar {*/
+/*    width: 100%;*/
+/*    padding: 0.75rem;*/
+/*    background-color: #007bff;*/
+/*    color: white;*/
+/*    border: none;*/
+/*    border-radius: 4px;*/
+/*    font-size: 1rem;*/
+/*    font-weight: 500;*/
+/*    cursor: pointer;*/
+/*    transition: background-color 0.15s;*/
+/*  }*/
+/*  */
+/*  .botao-enviar:hover {*/
+/*    background-color: #0069d9;*/
+/*  }*/
+/*  */
+/*  .botao-enviar:disabled {*/
+/*    background-color: #6c757d;*/
+/*    cursor: not-allowed;*/
+/*  }*/
+/*  */
+/*  !* Estilos das mensagens *!*/
+/*  .mensagem {*/
+/*    padding: 1rem;*/
+/*    margin-bottom: 1.5rem;*/
+/*    border-radius: 4px;*/
+/*    text-align: center;*/
+/*  }*/
+/*  */
+/*  .mensagem.sucesso {*/
+/*    background-color: #d4edda;*/
+/*    color: #155724;*/
+/*    border: 1px solid #c3e6cb;*/
+/*  }*/
+/*  */
+/*  .mensagem.erro {*/
+/*    background-color: #f8d7da;*/
+/*    color: #721c24;*/
+/*    border: 1px solid #f5c6cb;*/
+/*  }*/
+/*  */
+/*  !* Responsividade *!*/
+/*  @media (max-width: 768px) {*/
+/*    .formulario-postagem {*/
+/*      padding: 1rem;*/
+/*    }*/
+/*    */
+/*    .formulario-titulo {*/
+/*      font-size: 1.25rem;*/
+/*    }*/
+/*  }*/

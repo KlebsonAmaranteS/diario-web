@@ -22,12 +22,12 @@ import java.util.stream.Collectors;
 public class PostagemService {
 
     private final PostagemRepository repository;
+    private final Cloudinary cloudinary;
 
     @Autowired
-    private Cloudinary cloudinary;
-
-    public PostagemService(PostagemRepository repository) {
+    public PostagemService(PostagemRepository repository, Cloudinary cloudinary) {
         this.repository = repository;
+        this.cloudinary = cloudinary;
     }
 
     public List<PostagemResponseDTO> listar() {
@@ -42,22 +42,44 @@ public class PostagemService {
                 .map(PostagemMapper::toDTO);
     }
 
+    private PostagemResponseDTO toResponseDTO(Postagem postagem) {
+        PostagemResponseDTO dto = new PostagemResponseDTO();
+        dto.setId(postagem.getId());
+        dto.setTitulo(postagem.getTitulo());
+        dto.setTexto(postagem.getTexto());
+        dto.setDataHora(postagem.getDataHora());
+        dto.setUrlImagem(postagem.getUrlImagem());
+        return dto;
+    }
+
     public PostagemResponseDTO salvar(PostagemRequestDTO dto) {
         try {
-            Map uploadResult = cloudinary.uploader().upload(dto.getFoto().getBytes(), ObjectUtils.emptyMap());
-            String urlImagem = uploadResult.get("secure_url").toString();
+            // Upload da imagem para o Cloudinary
+            Map uploadResult = cloudinary.uploader().upload(
+                    dto.getFoto().getBytes(),
+                    ObjectUtils.asMap(
+                            "folder", "diario_postagens", // Organiza em pastas
+                            "resource_type", "auto" // Detecta automaticamente o tipo
+                    )
+            );
 
+            // Extrai informações do upload
+            String urlImagem = uploadResult.get("secure_url").toString();
+            String publicId = uploadResult.get("public_id").toString();
+
+            // Cria e salva a postagem
             Postagem postagem = new Postagem();
             postagem.setTitulo(dto.getTitulo());
             postagem.setTexto(dto.getTexto());
             postagem.setDataHora(LocalDateTime.now());
             postagem.setUrlImagem(urlImagem);
+            postagem.setPublicIdImagem(publicId);
 
-            repository.save(postagem);
+            Postagem savedPostagem = repository.save(postagem);
 
-            return new PostagemResponseDTO(postagem.getId(), postagem.getTitulo(), postagem.getTexto(), postagem.getDataHora(), postagem.getUrlImagem());
+            return toResponseDTO(savedPostagem);
         } catch (IOException e) {
-            throw new RuntimeException("Erro ao fazer upload da imagem", e);
+            throw new RuntimeException("Erro ao processar a imagem", e);
         }
     }
 

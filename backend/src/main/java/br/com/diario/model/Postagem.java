@@ -14,12 +14,21 @@ import java.time.LocalDateTime;
 public class Postagem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
+    @Column(nullable = false, length = 100)
     private String titulo;
+
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String texto;
+
+    @Column(nullable = false)
     private LocalDateTime dataHora;
 
+    @Column(columnDefinition = "TEXT") // Alterado para TEXT para URLs longas
     private String urlImagem;
+
+    // Adicione este campo para armazenar o public_id do Cloudinary
+    private String publicIdImagem;
 }
 
