@@ -13,7 +13,7 @@ public class PostagemMapper {
         dto.setTitulo(postagem.getTitulo());
         dto.setTexto(postagem.getTexto());
         dto.setDataHora(LocalDateTime.now());
-        dto.setFoto(postagem.getFoto());
+        dto.setUrlImagem(postagem.getUrlImagem());
         return dto;
     }
 
@@ -23,7 +23,7 @@ public class PostagemMapper {
         postagem.setTitulo(dto.getTitulo());
         postagem.setTexto(dto.getTexto());
         postagem.setDataHora(dto.getDataHora());
-        postagem.setFoto(dto.getFoto());
+        postagem.setUrlImagem(dto.getUrlImagem());
         return postagem;
     }
 }

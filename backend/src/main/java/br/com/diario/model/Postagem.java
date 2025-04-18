@@ -16,12 +16,10 @@ public class Postagem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    String titulo;
+    private String titulo;
+    private String texto;
+    private LocalDateTime dataHora;
 
-    String texto;
-
-    LocalDateTime dataHora;
-
-    @Lob
-    byte[] foto;
+    private String urlImagem;
 }
+
