@@ -23,5 +23,7 @@ public class PostagemResponseDTO {
         this.dataHora = postagem.getDataHora();
         this.urlImagem = postagem.getUrlImagem();
     }
+
+
 }
 

@@ -8,5 +8,12 @@ public class PostagemRequestDTO {
     private String titulo;
     private String texto;
     private MultipartFile foto;
+
+    // Validação adicional
+    public boolean isValid() {
+        return titulo != null && !titulo.isBlank() &&
+                texto != null && !texto.isBlank() &&
+                foto != null && !foto.isEmpty();
+    }
 }
 
