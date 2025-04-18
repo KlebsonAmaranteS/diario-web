@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { format, parseISO } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
-import '../styles/postagem.css';
+import '../styles/Postagem.css';
 
 const Postagem = () => {
   const { id } = useParams();

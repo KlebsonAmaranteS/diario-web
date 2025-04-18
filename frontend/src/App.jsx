@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './styles/Postagem.css'
+import './styles/index.css'
 import Postagem from './pages/Postagem'
 import Home from './pages/Home' // Você precisará criar esta página também
 
