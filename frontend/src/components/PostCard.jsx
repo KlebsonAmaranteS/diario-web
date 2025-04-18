@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { format, parseISO } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
-import '../styles/postcard.css';
+import '../styles/PostCard.css';
 
 const PostCard = ({ titulo, dataHora, imagem, resumo, idPostagem }) => {
   // Formatar a data para exibição

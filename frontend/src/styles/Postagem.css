@@ -8,9 +8,15 @@ body {
 
 /* Layout Principal */
 .post-container {
+  background-color: #f5f7fa;
+  background-image: url('/src/assets/image/img.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   min-height: 100vh;
-  background-color: #f9fafb;
-  padding: 2rem 1rem;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 }
 
 .post-content {
@@ -22,7 +28,7 @@ body {
 .back-button {
   display: flex;
   align-items: center;
-  color: #2563eb;
+  color: #d7d4d4;
   background: none;
   border: none;
   cursor: pointer;
@@ -32,7 +38,7 @@ body {
 }
 
 .back-button:hover {
-  color: #1e40af;
+  color: #ffffff;
 }
 
 .back-icon {

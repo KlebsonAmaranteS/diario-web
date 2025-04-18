@@ -1,8 +1,17 @@
-/*@tailwind base;*/
-/*@tailwind components;*/
-/*@tailwind utilities;*/
-
-/*!* Estilos personalizados *!*/
-/*.prose {*/
-/*  max-width: none;*/
-/*}*/
+/* styles/index.css */
+body {
+    background-color: #f5f7fa; /* Cor sólida de fallback */
+    
+    /* Gradiente como exemplo - descomente se quiser usar */
+    /* background: linear-gradient(to right, #f5f7fa, #e4e8f0); */
+    
+    /* Para usar imagem de fundo */
+    background-image: url('/src/assets/image/img.jpg'); /* Coloque sua imagem na pasta public */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
