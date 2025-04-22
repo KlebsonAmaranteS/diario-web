@@ -47,11 +47,21 @@ public class PostagemController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletar(@PathVariable Long id) {
-        service.deletar(id);
-        return ResponseEntity.noContent().build();
-    }
+    public ResponseEntity<?> deletar(@PathVariable Long id) {
+        try {
+            // Verifica se a postagem existe antes de tentar deletar
+            Optional<PostagemResponseDTO> postagemExistente = service.buscarPorId(id);
+            if (postagemExistente.isEmpty()) {
+                return ResponseEntity.notFound().build();
+            }
 
+            service.deletar(id);
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError()
+                    .body("Erro ao deletar postagem: " + e.getMessage());
+        }
+    }
     @GetMapping
     public ResponseEntity<List<PostagemResponseDTO>> listarTodas() {
         return ResponseEntity.ok(service.listarTodas());
