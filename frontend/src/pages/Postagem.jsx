@@ -12,6 +12,8 @@ const Postagem = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [imageLoading, setImageLoading] = useState(true);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [deleteError, setDeleteError] = useState(null);
 
   useEffect(() => {
     const fetchPostagem = async () => {
@@ -27,6 +29,22 @@ const Postagem = () => {
 
     fetchPostagem();
   }, [id]);
+
+  const handleDelete = async () => {
+    if (window.confirm('Tem certeza que deseja deletar esta postagem? Esta ação não pode ser desfeita.')) {
+      setIsDeleting(true);
+      setDeleteError(null);
+      
+      try {
+        await axios.delete(`http://localhost:8080/postagens/${id}`);
+        navigate('/', { state: { message: 'Postagem deletada com sucesso!' } });
+      } catch (err) {
+        setDeleteError(err.response?.data?.message || 'Erro ao deletar a postagem');
+      } finally {
+        setIsDeleting(false);
+      }
+    }
+  };
 
   const formatarData = (dataString) => {
     return format(parseISO(dataString), "dd 'de' MMMM 'de' yyyy 'às' HH:mm", {
@@ -77,15 +95,31 @@ const Postagem = () => {
   return (
     <div className="post-container">
       <div className="post-content">
-        <button
-          onClick={() => navigate(-1)}
-          className="back-button"
-        >
-          <svg className="back-icon" viewBox="0 0 24 24">
-            <path d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-          Voltar
-        </button>
+        <div className="post-actions">
+          <button
+            onClick={() => navigate(-1)}
+            className="back-button"
+          >
+            <svg className="back-icon" viewBox="0 0 24 24">
+              <path d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Voltar
+          </button>
+          
+          <button
+            onClick={handleDelete}
+            className="delete-button"
+            disabled={isDeleting}
+          >
+            {isDeleting ? 'Deletando...' : 'Deletar Postagem'}
+          </button>
+        </div>
+
+        {deleteError && (
+          <div className="error-message" style={{ marginBottom: '20px' }}>
+            {deleteError}
+          </div>
+        )}
 
         <article className="post-card">
           <div className="post-header">
