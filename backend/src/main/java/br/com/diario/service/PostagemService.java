@@ -83,10 +83,10 @@ public class PostagemService {
         }
     }
 
-    public void deletar(Long id) {
-        repository.deleteById(id);
-    }
-
+//    public void deletar(Long id) {
+//        repository.deleteById(id);
+//    }
+//
     public List<PostagemResponseDTO> listarTodas() {
         return repository.findAll()
                 .stream()
@@ -94,6 +94,28 @@ public class PostagemService {
                 .collect(Collectors.toList());
     }
 
+
+    public void deletar(Long id) {
+        // Primeiro busca a postagem para obter o publicId da imagem
+        Optional<Postagem> postagemOptional = repository.findById(id);
+
+        if (postagemOptional.isPresent()) {
+            Postagem postagem = postagemOptional.get();
+
+            // Se tiver publicId, deleta a imagem do Cloudinary
+            if (postagem.getPublicIdImagem() != null && !postagem.getPublicIdImagem().isEmpty()) {
+                try {
+                    cloudinary.uploader().destroy(postagem.getPublicIdImagem(), ObjectUtils.emptyMap());
+                } catch (IOException e) {
+                    // Loga o erro mas continua com a deleção da postagem
+                    System.err.println("Erro ao deletar imagem do Cloudinary: " + e.getMessage());
+                }
+            }
+
+            // Deleta a postagem do banco de dados
+            repository.deleteById(id);
+        }
+    }
 
 
 }
