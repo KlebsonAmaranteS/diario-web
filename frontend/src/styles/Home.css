@@ -9,10 +9,9 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 1;
-  margin-top: -30px; /* Sobrepondo levemente o header */
+  margin-top: -30px;
 }
 
-/* Postagem destacada */
 .featured-post {
   margin-bottom: 3rem;
 }
@@ -27,7 +26,6 @@
   transform: translateY(-5px);
 }
 
-/* Grid de postagens */
 .posts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -35,7 +33,6 @@
   margin-top: 2rem;
 }
 
-/* Estilos do cabeçalho */
 .home-header {
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: white;
@@ -65,7 +62,6 @@
   border-radius: 50px;
 }
 
-/* Estilo para o PostCard destacado */
 .post-card.featured {
   background-color: #fff;
   border: none;
@@ -79,7 +75,6 @@
   color: var(--dark-color);
 }
 
-/* Efeito de onda no header */
 .header-wave {
   position: absolute;
   bottom: 0;
@@ -101,7 +96,6 @@
   fill: #f5f7fa;
 }
 
-/* Ajustes responsivos */
 @media (max-width: 900px) {
   .posts-container {
     margin: -20px 20px 0;
